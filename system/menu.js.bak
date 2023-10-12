@@ -1,0 +1,43 @@
+const chalk = require('chalk')
+const fs = require('fs')
+text = '<text>'
+stgc = '<enable / disable>'
+exports.menu = (prefix, pushname, isCreator, isPremium, m) => {
+ return `
+ 👋 Hallo Kak ${pushname}
+ 
+ 「 INFO USER 」
+
+ ❐ Name : ${pushname}
+ ❐ Number : ${m.sender.split('@')[0]}
+ ❐ Status : ${isCreator ? "Owner 👑️":"User ⚔️"}
+ ❐ User : ${isPremium ? 'Premium 👑' : 'Gratisan 🗿'}
+ ❐ Limit : ${isCreator ? 'Unlimited 👑' : `${db.data.users[m.sender].limit}`}
+ 
+• ${prefix}owner
+• ${prefix}qc ${text}
+ 
+× fun say
+• ${prefix}hilih ${text}
+• ${prefix}huluh ${text}
+• ${prefix}heleh ${text}
+• ${prefix}holoh ${text}
+• ${prefix}halah ${text}
+
+× downloader feature
+• ${prefix}tiktok
+• ${prefix}tiktoknowm
+• ${prefix}tiktokmusic
+
+× groups settings
+• ${prefix}antilink ${stgc}
+
+`
+ }
+ let file = require.resolve(__filename)
+fs.watchFile(file, () => {
+fs.unwatchFile(file)
+console.log(chalk.cyanBright(`Update ${__filename}`))
+delete require.cache[file]
+require(file)
+})

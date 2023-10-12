@@ -1,0 +1,49 @@
+const fs = require('fs')
+const chalk = require('chalk')
+global.fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+
+global.owner = ['6282229794274']
+global.numberBot = '6285234568734' 
+global.premium = ['6282229794274']
+global.namaBot = '©ɪ ᴄ ʜ ᴀ ɴ Bot'
+global.author = '𝑴 𝒂 𝒔`𝑹 𝒆 𝒏 𝒔'
+global.packname = 'ɪ ᴄ ʜ ᴀ ɴ'
+global.owner_name = '𝑴 𝒂 𝒔`𝑹 𝒆 𝒏 𝒔'
+global.footer = 'ꜱɪᴍᴘʟᴇ ᴡʜᴀᴛꜱᴀᴘᴘ ʙᴏᴛ ᴍᴀᴅᴇ ʙʏ ɪ ᴄ ʜ ᴀ ɴ ッ'
+global.sessionName = 'ichan'
+global.state = true //Ganti false Jika Ingin via Scan
+global.autoAI = true
+/* apikey https://api.neoxr.eu/ */
+global.Api = new (require('./neoxrApi'))(global.API_KEY)
+global.API_KEY = 'rensnight' 
+
+global.email = 'arikarayarikaray@gmail.com'
+global.namaweb = 'TikTok'
+global.myweb = 'https://tiktok.com/@is_t_me_rw'
+global.region = 'Indonesia'
+//—————「 Set Limit 」—————//
+//terserah mau ubah atau nggak
+global.limitawal = {
+    premium: "Infinity",
+    free: 10,
+}
+
+global.mess = {
+wait : 'Processed . . .',
+error : 'Sorry this feature is in error',
+invalid: 'URL is Invalid!',
+fail: 'Can\'t get metadata!',
+group: 'This command will only work in groups.',
+admin: 'This command only for group admin.',
+botAdmin: 'This command will work when I become an admin.'
+}
+
+global.loc = 'https://telegra.ph/file/36549c9d5d3561c923acf.jpg'
+
+let file = require.resolve(__filename)
+fs.watchFile(file, () => {
+fs.unwatchFile(file)
+console.log(chalk.redBright(`Update ${__filename}`))
+delete require.cache[file]
+require(file)
+})
